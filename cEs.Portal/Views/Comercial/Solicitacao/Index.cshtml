@@ -1,0 +1,73 @@
+@model IEnumerable<cEs.Portal.Models.Comercial.SolicitacaoListaViewModel>
+<div class="corpo">
+    <div class="Corpo-II">
+                @{
+                    ViewBag.Title = "Solicitação";
+                }
+
+                <h2>Solicita&#231;&#227;o</h2>
+
+                <input type="button" class="btn btn-info" value="Novo" onclick="location.href='@Url.Action("Insert", "Solicitacao")'" />
+
+        <div class="row>">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Data)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="col-md-8">
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                            <td class="col-md-1">
+                                @Html.DisplayFor(modelItem => item.Data)
+                            </td>
+                            <td >
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td class="col-md-1">
+                                <a href="@Url.Action("Details", new { id = item.SolicitacaoId  })">
+                                    <i class="glyphicon glyphicon-expand Botoes"></i>
+                                    <span class="sr-only">Detalhe</span>
+                                </a>
+
+                                <a href="@Url.Action("Edit", new { id = item.SolicitacaoId  })">
+                                    <i class="glyphicon glyphicon-edit Botoes"></i>
+                                    <span class="sr-only">Edita</span>
+                                </a>
+
+                                <a href="@Url.Action("Delete", new { id = item.SolicitacaoId  })">
+                                    <i class="glyphicon glyphicon-remove Botoes"></i>
+                                    <span class="sr-only">Deleta</span>
+                                </a>
+
+                                @*<a href="@Url.Action("Index","Requete")" class="my-link-class"><div class="my-icon"><img src="@Url.Content("~/icon.jpg")" alt="Icon Image" />
+                                </a>*@
+
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+    </div>
+@section Scripts {
+    <script type="text/javascript" src="~/js/jquery.mask.js"></script>
+    <script type="text/javascript" src="~/js/Mascaras.js"></script>
+}
+

@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>C:\Sites\Sistemplan\netcoreapp1.1\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Administrativo\BancoAppService.cs" />
+    <Compile Remove="Administrativo\ClienteAppService.cs" />
+    <Compile Remove="Administrativo\ClienteTipoAppService.cs" />
+    <Compile Remove="Administrativo\SituacaoAppService.cs" />
+    <Compile Remove="Interface\IAppServiceBase01.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\cEs.Domain\cEs.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

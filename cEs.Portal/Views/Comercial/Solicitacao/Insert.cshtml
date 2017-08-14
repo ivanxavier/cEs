@@ -1,0 +1,144 @@
+﻿@using System.Collections
+@model cEs.Portal.Models.Comercial.SolicitacaoViewModel
+<div class="row>">
+    <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="Solicitacao">
+                <h4 class="modal-title" id="myModalLabel">Solita&#231;&#227;o</h4>
+                @using (Html.BeginForm("Insert", "Solicitacao", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    <h4>@ViewBag.Title</h4>
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="container-narrow">
+                        <div class="row-fluid">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12">
+                                    <label class="control-label" for="">Nome</label>
+                                    <div class="controls">
+                                        <input type="text" id="Nome" name="Nome" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-10 col-sm-10">
+                                    <label class="control-label" for="">Endereço</label>
+                                    <div class="controls">
+                                        <input type="text" id="Endereco" name="Endereco" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2 col-sm-2">
+                                    <label class="control-label" for="">Número</label>
+                                    <div class="controls">
+                                        <input type="text" id="Numero" name="Numero" class="form-control integer" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6">
+                                    <label class="control-label" for="">Bairro</label>
+                                    <div class="controls">
+                                        <input type="text" id="Bairro" name="Bairro" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <label class="control-label" for="">Município</label>
+                                    <div class="controls">
+                                        <input type="text" id="Municipio" name="Municipio" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4">
+                                    <label class="control-label" for="">Estado</label>
+                                    <div class="controls">
+                                        <select class="form-control" name="UF" id="UF">
+                                            @foreach (var Ufs in (List<cEs.Domain.Entities.Administrativo.Uf>)ViewData["Estados"])
+                                            {
+                                                <option value="@Ufs.UfId">@Ufs.Nome</option>
+                                            }
+                                        </select>
+                                        </div>
+                                    </div>
+                                <div class="col-xs-2 col-sm-2">
+                                    <label class="control-label" for="">Cep</label>
+                                    <div class="controls">
+                                        <input type="text" id="Cep" name="Cep" class="form-control cep" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+
+                                    <label class="control-label" for="">Contato</label>
+                                    <div class="controls">
+                                        <input type="text" id="Contato" name="Contato" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3 col-sm-3">
+                                    <label class="control-label" for="">Celular</label>
+                                    <div class="controls">
+                                        <input type="text" id="Celular" name="Celular" class="form-control phone_br" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-3 col-sm-3">
+                                    <label class="control-label" for="">Telefone</label>
+                                    <div class="controls">
+                                        <input type="text" id="Telefone" name="Telefone" class="form-control phone_with_ddd" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <label class="control-label" for="">E-Mail</label>
+                                    <div class="controls">
+                                        <input type="email" id="Email" name="Email" placeholder="usuario@dominio.com" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4">
+                                    <label class="control-label" for="">Status</label>
+                                    <div class="controls">
+                                        <select class="form-control" name="SolicitacaoStatusId" id="SolicitacaoStatusId">
+                                            @foreach (var Status in (List<cEs.Domain.Entities.Comercial.SolicitacaoStatus>)ViewData["Status"])
+                                            {
+                                                <option value="@Status.SolicitacaoStatusId">@Status.Nome</option>
+                                            }
+                                        </select>
+                                        </div>
+                                    </div>
+                                <div class="col-xs-8 col-sm-8">
+                                    <label class="control-label" for="">Procurar</label>
+                                    <div class="controls">
+                                        <input type="text" id="Procurar" name="Procurar" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-xs-12 col-sm-12">
+                                    <label class="control-label" for="">Assunto</label>
+                                    <div class="controls">
+                                        <textarea rows="4" cols="50" id="Assunto" name="Assunto" class="form-control" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-offset-4 col-md-4 altura">
+                                    <a href="#" onclick="Salvar()" class="form-control btn btn-primary">Grava</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            }
+            </div>
+        </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/ces/Solicitacao.js"></script>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <script type="text/javascript" src="~/js/jquery.mask.js"></script>
+    <script type="text/javascript" src="~/js/Mascaras.js"></script>
+}
+ 

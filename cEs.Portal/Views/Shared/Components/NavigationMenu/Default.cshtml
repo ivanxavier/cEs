@@ -1,0 +1,30 @@
+﻿@model cEs.Portal.Models.Seguranca.PaginaMenuModel.PaginaMenuItemListModel
+
+<div >
+
+
+
+    <ul class="nav navbar-nav navbar-left">
+
+        @foreach (cEs.Portal.Models.Seguranca.PaginaMenuModel.PaginaMenuItemModel menuItem in Model.PaginaMenuItems.Where(m => m.ParentId == 0 && (m.Tipo == "PE1"||m.Tipo == "PP1") ).ToList())
+        {
+            <menulink controller-name="@menuItem.ControllerName" action-name="@menuItem.ActionName" menu-text="@menuItem.MenuItemText" menu-id="@menuItem.Id"></menulink>
+        }
+    </ul>
+
+
+    <ul class="nav navbar-nav navbar-right">
+
+        @foreach (cEs.Portal.Models.Seguranca.PaginaMenuModel.PaginaMenuItemModel menuItem in Model.PaginaMenuItems.Where(m => m.ParentId == 0 && m.Tipo == "PD2").ToList())
+        {
+            <menulink controller-name="@menuItem.ControllerName" action-name="@menuItem.ActionName" menu-text="@menuItem.MenuItemText" menu-id="@menuItem.Id"></menulink>
+        }
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+
+        @foreach (cEs.Portal.Models.Seguranca.PaginaMenuModel.PaginaMenuItemModel menuItem in Model.PaginaMenuItems.Where(m => m.ParentId == 0 && m.Tipo == "PD1").ToList())
+        {
+            <menulink controller-name="@menuItem.ControllerName" action-name="@menuItem.ActionName" menu-text="@menuItem.MenuItemText" menu-id="@menuItem.Id"></menulink>
+        }
+    </ul>
+</div>

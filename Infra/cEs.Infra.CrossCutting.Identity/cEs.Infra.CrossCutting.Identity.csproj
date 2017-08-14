@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Security.Claims" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\cEs.Domain\cEs.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="cEs.Domain">
+      <HintPath>..\..\Domain\cEs.Domain\bin\Debug\netcoreapp1.1\cEs.Domain.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
